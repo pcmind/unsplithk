@@ -381,7 +381,7 @@
             bindings = <
         &kp COMMA     &kp N7  &kp N8  &kp N9        &kp PT_FSLH     &trans  &trans     &trans     &trans    &trans
 &trans  &kp PT_MINUS  &kp N4  &kp N5  &kp N6        &kp PT_PLUS     &trans  &kp RSHFT  &kp RCTRL  &kp LALT  &kp LGUI  &trans
-        &kp PT_EQUAL  &kp N1  &kp N2  &kp N3        &kp PT_ASTRK    &trans  &trans     &trans     &kp RALT  &trans
+        &kp PT_EQUAL  &kp N1  &kp N2  &kp N3        &kp PT_ASTRK    &trans  &trans     &trans     &trans    &trans
                               &trans  &kp NUMBER_0  &kp DOT         &trans  &trans     &trans
             >;
         };
@@ -398,7 +398,7 @@
         sym {
             bindings = <
              &kp PT_BSLH  &kp PT_SINGLE_QUOTE  &kp PT_GRAVE          &kp PT_ACUTE     &kp PT_SLASH      &kp PT_ORDM  &kp PT_TILDE  &kp PT_CARET  &kp PT_ORDF  &trans
-&kp PT_EURO  &kp PT_PIPE  &kp PT_ASTRK         &kp PT_AMPS           &kp PT_QUESTION  &kp PT_PERCENT    &trans       &kp LSHFT     &kp RCTRL     &kp LALT     &kp LGUI     &trans
+&kp PT_EURO  &kp PT_PIPE  &kp PT_ASTRK         &kp PT_AMPS           &kp PT_QUESTION  &kp PT_PERCENT    &trans       &kp LSHFT     &kp RCTRL     &kp LALT     &kp LGUI  &trans
              &kp PT_AT    &kp PT_EXCL          &kp PT_DOUBLE_QUOTES  &kp PT_HASH      &kp PT_DOLLAR     &trans       &kp PT_PLUS   &trans        &trans       &trans
                                                &trans                &trans           &trans            &trans       &trans        &trans
             >;
