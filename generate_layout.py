@@ -243,6 +243,16 @@ def generate_layout():
             "- p: [35, 36, 37]\n  k: bluetooth",
             "- p: [35, 36, 37]\n  k: bluetooth\n  l: [default]\n  a: bottom"
         )
+
+    # 3. game combo: ensure it has l: [default, game] and a: bottom
+    if "- p: [32, 33, 34]\n  k: {t: game, h: toggle}\n  l: [default, game]\n  a: bottom" not in content and "- p: [32, 33, 34]\n  k: {t: game, h: toggle}" in content:
+        content = content.replace(
+            "- p: [32, 33, 34]\n  k: {t: game, h: toggle}\n  a: bottom",
+            "- p: [32, 33, 34]\n  k: {t: game, h: toggle}\n  l: [default, game]\n  a: bottom"
+        ).replace(
+            "- p: [32, 33, 34]\n  k: {t: game, h: toggle}",
+            "- p: [32, 33, 34]\n  k: {t: game, h: toggle}\n  l: [default, game]\n  a: bottom"
+        )
         
     # 4. align underscore and star combos to top of the keyboard (above the entire keyboard layout)
     if "- p: [12, 14]\n  k: {t: _, h: Alt+Ctrl}\n  a: top" not in content:

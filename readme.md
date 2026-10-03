@@ -18,6 +18,7 @@ Powered by [ZMK Firmware](https://zmk.dev/) running on a `nice_nano_v2` controll
 *   **🖱️ Native Mouse Layer (Tri-Layer)**: Hold both the **Nav** (Layer 1) and **Num** (Layer 2) thumb keys simultaneously to automatically trigger the **Mouse Layer** (Layer 3) with mouse pointer and scrolling movements.
 *   **✍️ Localized `caps_word`**: Customized Portuguese continue-list including `PT_UNDERSCORE`, `PT_MINUS`, and `PT_SINGLE_QUOTE`. Typographical hyphens, underscores, or apostrophes (such as in *d'água*) will not deactivate `caps_word` capitalization.
 *   **💎 Custom Symbol Macros**: Dedicated macro layer providing quick, delay-buffered access to Portuguese characters (`ã`, `õ`) and development symbols (`->`, `=>`, `==`, `!=`, `<=`, `>=`).
+*   **🎮 Dedicated Gaming Layer**: Low-latency FPS gaming mode with clean WASD movement (home-row mods removed for zero tap latency), Left Shift on outer thumb, Space on middle thumb, Left Control on inner thumb, Esc at key 10, and dedicated 1–0 number keys on the right hand. Toggled on and off using the 3-thumb combo (all 3 left thumb keys pressed together).
 *   **🌐 Wireless Multi-Device Bluetooth**: Seamless profiles switching for up to 5 devices, built-in battery/power management, and automatic Bluetooth/USB output toggle.
 
 ---

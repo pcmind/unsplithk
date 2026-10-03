@@ -314,6 +314,45 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  game:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - Esc
+  - A
+  - S
+  - D
+  - F
+  - G
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - DEL
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - ENTER
+  - $$mdi:keyboard-tab$$
+  - M
+  - I
+  - {t: '-', s: _}
+  - $$mdi:apple-keyboard-shift$$
+  - $$mdi:keyboard-space$$
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:keyboard-tab$$
+  - ENTER
+  - $$mdi:apple-keyboard-shift$$
 combos:
 - p: [12, 13]
   k: <
@@ -340,3 +379,7 @@ combos:
   l: [default]
 - p: [17, 19]
   k: '='
+- p: [32, 33, 34]
+  k: {t: game, h: toggle}
+  l: [default, game]
+  a: bottom

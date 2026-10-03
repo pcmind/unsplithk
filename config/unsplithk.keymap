@@ -111,6 +111,11 @@
             require-prior-idle-ms = <50>;
             timeout-ms = <50>;
         };
+
+        gamelayer {
+            bindings = <&tog 8>;
+            key-positions = <32 33 34>;
+        };
     };
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
@@ -428,6 +433,15 @@
 &trans  &a_tilde_m  &trans  &trans  &trans  &trans    &tilde_slash_m  &not_eq_m  &eq_eq_m  &jlambda_m  &eq_gt_m  &trans
         &trans      &trans  &trans  &none   &trans    &trans          &none      &lt_eq_m  &gt_eq_m    &trans
                             &trans  &trans  &trans    &trans          &trans     &trans
+            >;
+        };
+
+        game {
+            bindings = <
+         &kp Q        &kp W   &kp E   &kp R   &kp T     &kp N1    &kp N2     &kp N3    &kp N4     &kp N5
+&kp ESC  &kp A        &kp S   &kp D   &kp F   &kp G     &kp N6    &kp N7     &kp N8    &kp N9     &kp N0     &kp DEL
+         &kp Z        &kp X   &kp C   &kp V   &kp B     &kp ENTER &kp TAB    &kp M     &kp I      &mm_minus
+                              &kp LSHFT &kp SPACE &kp LCTRL &kp TAB &kp ENTER &kp RSHFT
             >;
         };
     };
