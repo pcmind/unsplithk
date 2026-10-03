@@ -1,6 +1,6 @@
 # 🌌 Unsplithk - Custom 38-Key Keyboard
 
-![Unsplithk Keyboard](case/unsplithk/top.jpg)
+![Unsplithk Keyboard](case/top.jpeg)
 
 ## 🗺️ Interactive Visual Keymap
 
