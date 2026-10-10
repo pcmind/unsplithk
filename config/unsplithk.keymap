@@ -438,28 +438,10 @@
 
         gamefps {
             bindings = <
-         &kp T    &kp Q  &kp W      &kp E      &kp R        &trans  &trans  &trans  &trans  &trans
-&kp ESC  &kp G    &kp A  &kp S      &kp D      &kp F        &trans  &trans  &trans  &trans  &trans  &trans
-         &kp TAB  &kp Z  &kp X      &kp C      &kp V        &trans  &trans  &trans  &trans  &trans
-                         &kp LSHFT  &kp SPACE  &kp LCTRL    &tog 8  &trans  &trans
-            >;
-        };
-
-        gamenum {
-            bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
-            >;
-        };
-
-        gamefun {
-            bindings = <
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+         &kp T               &kp Q  &kp W      &kp E                 &kp R        &trans  &trans  &trans  &trans  &trans
+&kp ESC  &kp G               &kp A  &kp S      &kp D                 &kp F        &trans  &trans  &trans  &trans  &trans  &trans
+         &lt_k_repeat 5 TAB  &kp Z  &kp X      &kp C                 &kp V        &trans  &trans  &trans  &trans  &trans
+                                    &kp LSHFT  &lt_k_repeat 2 SPACE  &kp LCTRL    &tog 8  &trans  &trans
             >;
         };
     };
