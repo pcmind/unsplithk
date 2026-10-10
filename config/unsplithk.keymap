@@ -436,12 +436,30 @@
             >;
         };
 
-        game {
+        gamefps {
             bindings = <
-         &kp Q        &kp W   &kp E   &kp R   &kp T     &kp N1    &kp N2     &kp N3    &kp N4     &kp N5
-&kp ESC  &kp A        &kp S   &kp D   &kp F   &kp G     &kp N6    &kp N7     &kp N8    &kp N9     &kp N0     &kp DEL
-         &kp Z        &kp X   &kp C   &kp V   &kp B     &kp ENTER &kp TAB    &kp M     &kp I      &mm_minus
-                              &kp LSHFT &kp SPACE &kp LCTRL &kp TAB &kp ENTER &kp RSHFT
+         &kp T    &kp Q  &kp W      &kp E      &kp T        &trans  &trans  &trans  &trans  &trans
+&kp ESC  &kp G    &kp A  &kp S      &kp D      &kp F        &trans  &trans  &trans  &trans  &trans  &trans
+         &kp TAB  &kp Z  &kp X      &kp C      &kp V        &trans  &trans  &trans  &trans  &trans
+                         &kp LSHFT  &kp SPACE  &kp LCTRL    &tog 8  &trans  &trans
+            >;
+        };
+
+        gamenum {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        gamefun {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
