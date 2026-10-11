@@ -314,45 +314,45 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  game:
+  gamefps:
+  - T
   - Q
   - W
   - E
   - R
-  - T
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - Esc
+  - G
   - A
   - S
   - D
   - F
-  - G
-  - '6'
-  - '7'
-  - '8'
-  - '9'
-  - '0'
-  - DEL
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: TAB, h: FUN}
   - Z
   - X
   - C
   - V
-  - B
-  - ENTER
-  - $$mdi:keyboard-tab$$
-  - M
-  - I
-  - {t: '-', s: _}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - $$mdi:apple-keyboard-shift$$
-  - $$mdi:keyboard-space$$
+  - {t: '$$mdi:keyboard-space$$', h: num}
   - $$mdi:apple-keyboard-control$$
-  - $$mdi:keyboard-tab$$
-  - ENTER
-  - $$mdi:apple-keyboard-shift$$
+  - {t: gamefps, h: toggle}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
 combos:
 - p: [12, 13]
   k: <
@@ -380,6 +380,6 @@ combos:
 - p: [17, 19]
   k: '='
 - p: [32, 33, 34]
-  k: {t: game, h: toggle}
-  l: [default, game]
+  k: {t: gamefps, h: toggle}
+  l: [default, gamefps]
   a: bottom
