@@ -28,19 +28,58 @@ layers:
   - Z
   - X
   - C
-  - {t: V, h: MAC}
+  - {t: V, h: macro_l}
   - B
   - N
   - M
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '-', s: _}
-  - {t: TAB, h: FUN}
-  - {t: SPC, h: NAV}
-  - {t: ENTER, h: mouse}
+  - {t: '$$mdi:keyboard-tab$$', h: fun}
+  - {t: '$$mdi:keyboard-space$$', h: nav}
   - {t: ⮐, h: SYM}
-  - {t: '$$mdi:backspace-outline$$', h: NUM}
+  - {t: ENTER, h: sym}
+  - {t: '$$mdi:backspace-outline$$', h: num}
   - {t: Magic, h: Shift}
+  gamefps:
+  - T
+  - Q
+  - W
+  - E
+  - R
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Esc
+  - G
+  - A
+  - S
+  - D
+  - F
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: '$$mdi:keyboard-tab$$', h: fun}
+  - Z
+  - X
+  - C
+  - V
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - $$mdi:apple-keyboard-shift$$
+  - {t: '$$mdi:keyboard-space$$', h: num}
+  - $$mdi:apple-keyboard-control$$
+  - {t: gamefps, h: toggle}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   nav:
   - {t: Ctl+Q, type: trans}
   - Ctl+W
@@ -312,45 +351,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  gamefps:
-  - T
-  - Q
-  - W
-  - E
-  - R
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Esc
-  - G
-  - A
-  - S
-  - D
-  - F
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: TAB, h: FUN}
-  - Z
-  - X
-  - C
-  - V
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - $$mdi:apple-keyboard-shift$$
-  - {t: '$$mdi:keyboard-space$$', h: num}
-  - $$mdi:apple-keyboard-control$$
-  - {t: gamefps, h: toggle}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
