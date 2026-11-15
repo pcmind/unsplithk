@@ -1,121 +1,79 @@
 import json
 
 def generate_layout():
-    # Hardcoded left-hand layout coordinates (20 keys) from xxxxx.info.yaml
-    # Thumb cluster is shifted closer horizontally towards the center by 0.4 units
-    left = [
-        # Row 0 (Top Row)
-        {"x": 0.0, "y": 2.75, "r": 0.0, "rx": 0.0, "ry": 2.75},
-        {"x": 1.0, "y": 1.75, "r": 0.0, "rx": 1.0, "ry": 1.75},
-        {"x": 2.0, "y": 1.0, "r": 0.0, "rx": 2.0, "ry": 1.0},
-        {"x": 3.0, "y": 0.5, "r": 0.0, "rx": 3.0, "ry": 0.5},
-        {"x": 4.0, "y": 1.0, "r": 0.0, "rx": 4.0, "ry": 1.0},
-        {"x": 5.0, "y": 1.75, "r": 0.0, "rx": 5.0, "ry": 1.75},
-
-        # Row 1 (Home Row)
-        {"x": 0.25, "y": 3.75, "r": 0.0, "rx": 0.25, "ry": 3.75},
-        {"x": 1.15, "y": 2.75, "r": 0.0, "rx": 1.15, "ry": 2.75},
-        {"x": 2.1, "y": 2.0, "r": 0.0, "rx": 2.1, "ry": 2.0},
-        {"x": 3.0, "y": 1.5, "r": 0.0, "rx": 3.0, "ry": 1.5},
-        {"x": 3.9, "y": 2.0, "r": 0.0, "rx": 3.9, "ry": 2.0},
-        {"x": 4.85, "y": 2.75, "r": 0.0, "rx": 4.85, "ry": 2.75},
-
-        # Row 2 (Bottom Row)
-        {"x": 1.3, "y": 3.75, "r": 0.0, "rx": 1.3, "ry": 3.75},
-        {"x": 2.2, "y": 3.0, "r": 0.0, "rx": 2.2, "ry": 3.0},
-        {"x": 3.0, "y": 2.5, "r": 0.0, "rx": 3.0, "ry": 2.5},
-        {"x": 3.8, "y": 3.0, "r": 0.0, "rx": 3.8, "ry": 3.0},
-        {"x": 4.7, "y": 3.75, "r": 0.0, "rx": 4.7, "ry": 3.75},
-
-        # Left Thumb Cluster (Sweeping Outward Right) - Shifted horizontally right (inwards) by 0.4 units
-        {"x": 3.65, "y": 4.7, "r": 30.0, "rx": 3.65, "ry": 4.7},
-        {"x": 4.5, "y": 5.5, "r": 35.0, "rx": 4.5, "ry": 5.5},
-        {"x": 5.25, "y": 6.4, "r": 40.0, "rx": 5.25, "ry": 6.4}
+    # Exact left-hand key center coordinates (mm) and rotations (deg CCW) from ergogen.yaml (u = 19.0 mm)
+    u = 19.0
+    left_top_mm = [
+        {"x": 24.8722284, "y": 35.8762077, "r": -9.0},   # matrix_pinky_top
+        {"x": 53.9125537, "y": 41.7069054, "r": -20.0},  # matrix_ring_top
+        {"x": 78.0183072, "y": 42.4122248, "r": -24.0},  # matrix_middle_top
+        {"x": 95.8915730, "y": 30.0190226, "r": -27.0},  # matrix_index_top
+        {"x": 111.4587065, "y": 18.7201727, "r": -27.0}, # matrix_inner_top
     ]
-    
-    # We enforce perfect mathematical symmetry across the x = 7.5 axis
-    x_center = 7.5
-    
-    # 1. Left side keys extraction (20 keys defined, but only 19 are used in the 38-key layout)
-    # - Row 0: Pinky Top, Ring Top, Middle Top, Index Top, Inner Top (5 keys, skipping index 0)
-    left_top = left[1:6]
-    
-    # - Row 1: Outer Pinky Extension (index 0 from top row), Pinky Home, Ring Home, Middle Home, Index Home, Inner Home (6 keys)
-    left_home = [left[0]] + left[7:12]
-    
-    # - Row 2: Pinky Bottom, Ring Bottom, Middle Bottom, Index Bottom, Inner Bottom (5 keys)
-    left_bottom = left[12:17]
-    
-    # - Thumbs: Key 1, Key 2, Key 3 (3 keys)
-    left_thumbs = left[17:20]
-    
-    # 2. Re-mirror left keys to right keys to ensure absolute mathematical symmetry
-    # Mirrored top-left corner coordinate is: 2 * x_center - x - key_width (where key_width = 1.0)
-    right_top = []
-    for k in reversed(left_top):
-        right_top.append({
-            'x': 2 * x_center - k['x'] - 1.0,
-            'y': k['y'],
-            'r': -k['r'],
-            'rx': 2 * x_center - k['rx'],
-            'ry': k['ry']
-        })
-        
-    right_home = []
-    for k in reversed(left_home):
-        right_home.append({
-            'x': 2 * x_center - k['x'] - 1.0,
-            'y': k['y'],
-            'r': -k['r'],
-            'rx': 2 * x_center - k['rx'],
-            'ry': k['ry']
-        })
-        
-    right_bottom = []
-    for k in reversed(left_bottom):
-        right_bottom.append({
-            'x': 2 * x_center - k['x'] - 1.0,
-            'y': k['y'],
-            'r': -k['r'],
-            'rx': 2 * x_center - k['rx'],
-            'ry': k['ry']
-        })
-        
-    right_thumbs = []
-    # Left thumbs are Outer-to-Inner, so mirrored Right thumbs innermost-to-outermost are:
-    # Mirrored Key 3 (innermost), Mirrored Key 2 (middle), Mirrored Key 1 (outermost)
-    for k in [left_thumbs[2], left_thumbs[1], left_thumbs[0]]:
-        right_thumbs.append({
-            'x': 2 * x_center - k['x'] - 1.0,
-            'y': k['y'],
-            'r': -k['r'],
-            'rx': 2 * x_center - k['rx'],
-            'ry': k['ry']
-        })
+    left_home_mm = [
+        {"x": 2.0045821, "y": 22.9124781, "r": -5.0},    # matrix_outer_home
+        {"x": 21.8999639, "y": 17.1101242, "r": -9.0},   # matrix_pinky_home
+        {"x": 47.4141695, "y": 23.8527481, "r": -20.0},  # matrix_ring_home
+        {"x": 70.2903152, "y": 25.0548650, "r": -24.0},  # matrix_middle_home
+        {"x": 87.2657435, "y": 13.0899199, "r": -27.0},  # matrix_index_home
+        {"x": 102.8328770, "y": 1.7910700, "r": -27.0},  # matrix_inner_home
+    ]
+    left_bottom_mm = [
+        {"x": 18.9276993, "y": -1.6559591, "r": -9.0},   # matrix_pinky_bottom
+        {"x": 40.9157853, "y": 5.9985908, "r": -20.0},   # matrix_ring_bottom
+        {"x": 62.5623232, "y": 7.6975051, "r": -24.0},   # matrix_middle_bottom
+        {"x": 78.6399140, "y": -3.8391827, "r": -27.0},  # matrix_index_bottom
+        {"x": 94.2070475, "y": -15.1380326, "r": -27.0}, # matrix_inner_bottom
+    ]
+    left_thumbs_mm = [
+        {"x": 78.4361693, "y": -30.6713244, "r": -37.0}, # thumbs_layer_cluster
+        {"x": 93.5115853, "y": -44.9324773, "r": -47.0}, # thumbs_space_cluster
+        {"x": 106.0630753, "y": -61.0990206, "r": -57.0},# thumbs_tab_cluster
+    ]
 
-    # 3. Assemble all 38 keys row-by-row
-    all_keys = []
-    # Row 0: 10 keys
-    all_keys.extend(left_top)
-    all_keys.extend(right_top)
-    
-    # Row 1: 12 keys
-    all_keys.extend(left_home)
-    all_keys.extend(right_home)
-    
-    # Row 2: 10 keys
-    all_keys.extend(left_bottom)
-    all_keys.extend(right_bottom)
-    
-    # Row 3: 6 keys
-    all_keys.extend(left_thumbs)
-    all_keys.extend(right_thumbs)
-    
-    # 4. Normalize coordinates for centering and scaling in keymap-drawer and keymap-editor
-    xs = [k['x'] for k in all_keys]
+    # Mirror axis from ergogen.yaml: ref matrix_inner_top, distance 2.5kx
+    axis_x_mm = left_top_mm[-1]["x"] + 1.25 * u  # 135.2087065 mm
+    axis_x_u = axis_x_mm / u
+
+    def to_qmk_key(pt_mm):
+        # Convert Ergogen (center in mm, +y up, +r CCW) to QMK/Keymap Editor (top-left x/y in u, center rx/ry in u, +y down, +r CW)
+        cx = pt_mm["x"] / u
+        cy = -pt_mm["y"] / u
+        r = -pt_mm["r"]
+        return {"x": cx - 0.5, "y": cy - 0.5, "r": r, "rx": cx, "ry": cy}
+
+    def mirror_qmk_key(k):
+        cx_mirrored = 2.0 * axis_x_u - k["rx"]
+        cy_mirrored = k["ry"]
+        return {
+            "x": cx_mirrored - 0.5,
+            "y": cy_mirrored - 0.5,
+            "r": -k["r"],
+            "rx": cx_mirrored,
+            "ry": cy_mirrored,
+        }
+
+    left_top = [to_qmk_key(p) for p in left_top_mm]
+    left_home = [to_qmk_key(p) for p in left_home_mm]
+    left_bottom = [to_qmk_key(p) for p in left_bottom_mm]
+    left_thumbs = [to_qmk_key(p) for p in left_thumbs_mm]
+
+    right_top = [mirror_qmk_key(k) for k in reversed(left_top)]
+    right_home = [mirror_qmk_key(k) for k in reversed(left_home)]
+    right_bottom = [mirror_qmk_key(k) for k in reversed(left_bottom)]
+    right_thumbs = [mirror_qmk_key(k) for k in reversed(left_thumbs)]
+
+    # Assemble all 38 keys row-by-row
+    all_keys = (
+        left_top + right_top +
+        left_home + right_home +
+        left_bottom + right_bottom +
+        left_thumbs + right_thumbs
+    )
+
+    # Normalize coordinates so mirror axis is at x = 8.0 and top-most key starts at y = 0.5
     ys = [k['y'] for k in all_keys]
-    
-    offset_x = 0.5 - min(xs)
+    offset_x = 8.0 - axis_x_u
     offset_y = 0.5 - min(ys)
 
     # Ortholinear row/col matrix positions required by Keymap Editor (with col 6 gap between halves)
