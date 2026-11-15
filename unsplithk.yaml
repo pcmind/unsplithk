@@ -59,10 +59,10 @@ layers:
   - D
   - F
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {t: '$$mdi:arrow-left$$', type: trans}
+  - {t: '$$mdi:arrow-down$$', type: trans}
+  - {t: '$$mdi:arrow-up$$', type: trans}
+  - {t: '$$mdi:arrow-right$$', type: trans}
   - {t: ▽, type: trans}
   - {t: '$$mdi:keyboard-tab$$', h: fun}
   - Z
@@ -92,10 +92,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - $$mdi:backspace-outline$$
-  - {t: Ctl+A, h: '$$mdi:penguin$$'}
-  - {t: Ctl+S, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: Ctl+D, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: Ctl+F, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: Ctl+A, h: (LEFT GUI)}
+  - {t: Ctl+S, h: (LEFT ALT)}
+  - {t: Ctl+D, h: (LEFT CONTROL)}
+  - {t: Ctl+F, h: (LEFT SHIFT)}
   - Ctl+G
   - CLCK
   - $$mdi:arrow-left$$
@@ -170,10 +170,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: Esc, h: toggle}
-  - {t: Ctl+A, h: '$$mdi:penguin$$'}
-  - {t: Ctl+S, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: Ctl+D, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: Ctl+F, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: Ctl+A, h: (LWIN)}
+  - {t: Ctl+S, h: (LALT)}
+  - {t: Ctl+D, h: (LCTRL)}
+  - {t: Ctl+F, h: (LSHFT)}
   - {t: Ctl+G, h: toggle, type: trans}
   - CONTEXT MENU
   - Mouse Left
