@@ -111,35 +111,70 @@ def generate_layout():
     all_keys.extend(left_thumbs)
     all_keys.extend(right_thumbs)
     
-    # 4. Normalize coordinates for centering and scaling in keymap-drawer
+    # 4. Normalize coordinates for centering and scaling in keymap-drawer and keymap-editor
     xs = [k['x'] for k in all_keys]
     ys = [k['y'] for k in all_keys]
     
     offset_x = 0.5 - min(xs)
     offset_y = 0.5 - min(ys)
+
+    # Ortholinear row/col matrix positions required by Keymap Editor (with col 6 gap between halves)
+    row_cols = (
+        [(0, c) for c in [1, 2, 3, 4, 5, 7, 8, 9, 10, 11]] +
+        [(1, c) for c in [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12]] +
+        [(2, c) for c in [1, 2, 3, 4, 5, 7, 8, 9, 10, 11]] +
+        [(3, c) for c in [3, 4, 5, 7, 8, 9]]
+    )
     
     formatted_keys = []
-    for k in all_keys:
+    for idx, k in enumerate(all_keys):
+        row, col = row_cols[idx]
+        x_val = round(k['x'] + offset_x, 3)
+        y_val = round(k['y'] + offset_y, 3)
+        r_val = round(k['r'], 1)
+        if r_val == 0:
+            r_val = 0.0
+            rx_val = x_val
+            ry_val = y_val
+        else:
+            rx_val = round(k['rx'] + offset_x, 3)
+            ry_val = round(k['ry'] + offset_y, 3)
+
         formatted_keys.append({
-            'x': round(k['x'] + offset_x, 3),
-            'y': round(k['y'] + offset_y, 3),
-            'r': round(k['r'], 1),
-            'rx': round(k['rx'] + offset_x, 3),
-            'ry': round(k['ry'] + offset_y, 3)
+            'row': row,
+            'col': col,
+            'x': x_val,
+            'y': y_val,
+            'r': r_val,
+            'rx': rx_val,
+            'ry': ry_val
         })
         
     info_json = {
+        "id": "unsplithk",
+        "name": "Unsplithk",
         "keyboard_name": "unsplithk",
         "layouts": {
+            "default_transform": {
+                "name": "default_transform",
+                "layout": formatted_keys
+            },
             "LAYOUT_unsplithk": {
+                "name": "LAYOUT_unsplithk",
                 "layout": formatted_keys
             }
-        }
+        },
+        "sensors": []
     }
     
-    # Write to unsplithk_info.json
+    # Write to unsplithk_info.json and config/unsplithk.json
     with open('unsplithk_info.json', 'w') as f:
         json.dump(info_json, f, indent=2)
+        f.write('\n')
+
+    with open('config/unsplithk.json', 'w') as f:
+        json.dump(info_json, f, indent=2)
+        f.write('\n')
         
     # Open unsplithk.yaml and replace the layout line
     try:
@@ -270,20 +305,25 @@ def generate_layout():
         )
 
 
-    lines = content.split('\n')
-    layout_index = -1
-    for idx, line in enumerate(lines):
-        if line.startswith('layout:'):
-            layout_index = idx
-            break
-            
     layout_str = "layout:\n  qmk_keyboard: unsplithk\n  qmk_layout: LAYOUT_unsplithk"
     
-    if layout_index != -1:
-        lines[layout_index] = layout_str
-        new_content = '\n'.join(lines)
+    if "layout:\n  qmk_keyboard: unsplithk\n  qmk_layout: LAYOUT_unsplithk" in content:
+        new_content = content
     else:
-        new_content = layout_str + "\n" + content
+        lines = content.split('\n')
+        layout_index = -1
+        for idx, line in enumerate(lines):
+            if line.startswith('layout:'):
+                layout_index = idx
+                break
+        if layout_index != -1:
+            end_idx = layout_index + 1
+            while end_idx < len(lines) and lines[end_idx].startswith('  '):
+                end_idx += 1
+            lines[layout_index:end_idx] = [layout_str]
+            new_content = '\n'.join(lines)
+        else:
+            new_content = layout_str + "\n" + content
         
     with open('unsplithk.yaml', 'w') as f:
         f.write(new_content)

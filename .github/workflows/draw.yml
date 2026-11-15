@@ -33,6 +33,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add unsplithk.yaml unsplithk_info.json unsplithk.svg
+          git add config/unsplithk.json unsplithk.yaml unsplithk_info.json unsplithk.svg
           git commit -m "docs: auto-generate keymap SVG and YAML diagrams with custom physical layout" || exit 0
           git push
