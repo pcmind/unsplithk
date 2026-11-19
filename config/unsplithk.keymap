@@ -353,6 +353,15 @@
             #binding-cells = <0>;
             bindings = <&kp K_CANCEL>;
         };
+
+        o_caret_m: o_caret_m {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <15>;
+            tap-ms = <15>;
+            bindings = <&kp PT_CARET &kp PT_O>;
+            label = "O_CARET_M";
+        };
     };
 
     keymap {
@@ -412,7 +421,7 @@
         sym {
             bindings = <
              &kp PT_BSLH  &kp PT_SINGLE_QUOTE  &kp PT_GRAVE          &kp PT_ACUTE     &kp PT_SLASH      &kp PT_ORDM  &kp PT_TILDE  &kp PT_CARET  &kp PT_ORDF  &trans
-&kp PT_EURO  &kp PT_PIPE  &kp PT_ASTRK         &kp PT_AMPS           &kp PT_QUESTION  &kp PT_PERCENT    &trans       &kp LSHFT     &kp RCTRL     &kp LALT     &kp LGUI  &trans
+&kp PT_EURO  &kp PT_PIPE  &kp PT_ASTRK         &kp PT_AMPS           &kp PT_QUESTION  &kp PT_PERCENT    &o_tilde_m   &a_tilde_m    &o_caret_m    &trans       &trans  &trans
              &kp PT_AT    &kp PT_EXCL          &kp PT_DOUBLE_QUOTES  &kp PT_HASH      &kp PT_DOLLAR     &trans       &kp PT_PLUS   &trans        &trans       &trans
                                                &trans                &trans           &trans            &trans       &trans        &trans
             >;
@@ -438,10 +447,10 @@
 
         macro_l {
             bindings = <
-        &trans      &trans  &trans  &trans  &trans    &trans          &trans     &trans    &o_tilde_m  &trans
-&trans  &a_tilde_m  &trans  &trans  &trans  &trans    &tilde_slash_m  &not_eq_m  &eq_eq_m  &jlambda_m  &eq_gt_m  &trans
-        &trans      &trans  &trans  &none   &trans    &trans          &none      &lt_eq_m  &gt_eq_m    &trans
-                            &trans  &trans  &trans    &trans          &trans     &trans
+        &trans  &trans  &trans  &trans  &trans    &trans          &trans     &trans    &trans      &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &tilde_slash_m  &not_eq_m  &eq_eq_m  &jlambda_m  &eq_gt_m  &trans
+        &trans  &trans  &trans  &none   &trans    &trans          &none      &lt_eq_m  &gt_eq_m    &trans
+                        &trans  &trans  &trans    &trans          &trans     &trans
             >;
         };
     };
