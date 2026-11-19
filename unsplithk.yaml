@@ -214,11 +214,11 @@ layers:
   - '&'
   - '?'
   - '%'
+  - {t: õ, type: trans}
+  - ã
+  - '&o_caret_m'
   - {t: ▽, type: trans}
-  - $$mdi:apple-keyboard-shift$$
-  - $$mdi:apple-keyboard-control$$
-  - $$mdi:apple-keyboard-option$$
-  - $$mdi:penguin$$
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '@'
   - '!'
@@ -323,10 +323,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - õ
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ã
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
